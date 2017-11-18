@@ -16,9 +16,9 @@
 <div id="container">
   <img height="300px" src="少女終末旅行.jpg" alt="少女終末旅行圖片">
   <div class="row">
-    <a onclick="launchAJAX('new-page.html')">點擊切換圖片</a>
+    <a onclick="launchAJAX('no-pjax-new-page.html')">點擊切換圖片</a>
     <br>
-    <a href="https://enginelin.github.io/pjax-demo/no-pjax-index.html">切換看無 PJAX 效果的頁面</a>
+    <a href="https://enginelin.github.io/pjax-demo/index.html">切換看 PJAX 效果的頁面</a>
   </div>
 </div>
 
@@ -54,14 +54,13 @@ const containerDOM = document.getElementById('container');
 
 // 利用 AJAX 取得想要的資料
 function launchAJAX(hash) {
-  let url = 'https://enginelin.github.io/pjax-demo/'+ hash;
+  let url = 'https://enginelin.github.io/pjax-demo/#'+ hash;
   $.ajax({
     url: url,
     dataType: 'html',
     type: 'GET',
     success: function(html) {
       setContainer(html);
-      launchPushState(hash);
     },
   })
 }
@@ -69,14 +68,6 @@ function launchAJAX(hash) {
 // 將取得的資料塞到 <#container> 裡面，並取代之
 function setContainer(html) {
   containerDOM.innerHTML = html;
-}
-
-function launchPushState(hash) {
-  let name = hash.match(/(.*).html/)[1];
-  let stateObj = { index: name };
-
-  // pushState 參數分別是: state Object , title , url
-  window.history.pushState(stateObj, name, hash);
 }
 </script>
 

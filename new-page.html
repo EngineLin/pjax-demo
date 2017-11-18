@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <title>PJAX Homework - New page</title>
-
-  <script src="jquery-3.2.1.min.js"></script>
-  <script src="jquery.pjax.js"></script>
-</head>
-<body>
-
 <div id="container">
-  <img src="血界戰線.jpg" alt="血界戰線圖片">
+  <img height="300px" src="血界戰線.jpg" alt="血界戰線圖片">
+  <a onclick="launchAJAX('index.html')">點擊切換圖片</a>
+  <br>
+  <a href="https://enginelin.github.io/pjax-demo/no-pjax-index.html">切換看無 PJAX 效果的頁面</a>
 </div>
-
-<a href="file:///C:/Users/Engine%20Lin/Desktop/pjax-homework/index.html">Click to launch pjax</a>
-
-<style>
-  html,body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-  }
-
-  #container {
-    width: 100%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(100, 100, 100, .6)
-  }
-
-</style>
-
-<script>
-$.pjax({
-		selector: 'a',
-		container: '#container', //内容替换的容器
-		show: 'fade',  //展现的动画，支持默认和fade, 可以自定义动画方式，这里为自定义的function即可。
-		cache: true,  //是否使用缓存
-		storage: true,  //是否使用本地存储
-		titleSuffix: '', //标题后缀
-		filter: function(){},
-		callback: function(){}
-	})
-</script>
-
-</body>
-</html>
