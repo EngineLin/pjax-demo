@@ -1,6 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>PJAX Homework</title>
+
+  <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+<p class="currentTime"></p>
+
 <div id="container">
     <img height="300px" src="血界戰線.jpg" alt="血界戰線圖片">
     <a href="https://enginelin.github.io/pjax-demo/no-pjax-index.html">點擊切換圖片</a>
     <br>
     <a href="https://enginelin.github.io/pjax-demo/index.html">切換看有 PJAX 效果的頁面</a>
 </div>
+
+<style>
+  html,body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  #container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(100, 100, 100, .6)
+  }
+
+</style>
+
+<script>
+// 自動更新當前時間
+(function() {
+  const timeDOM = document.getElementsByClassName('currentTime');
+  let currentTime = new Date();
+  timeDOM[0].innerHTML = currentTime;
+})()
+</script>
+
+</body>
+</html>
